@@ -27,6 +27,7 @@ DROP DATABASE IF EXISTS SpotifyClone;
 
     CREATE TABLE SpotifyClone.cancoes(
       id INT PRIMARY KEY AUTO_INCREMENT,
+      duracao_segundos INT NOT NULL,
       nome VARCHAR(100) NOT NULL,
       album_cancoes INT NOT NULL,
       FOREIGN KEY (album_cancoes) REFERENCES album (id)
@@ -53,7 +54,7 @@ DROP DATABASE IF EXISTS SpotifyClone;
 
   	INSERT INTO SpotifyClone.plano (nome)
   VALUES
-	  ('gratuito'),
+	('gratuito'),
     ('familiar'),
     ('universitário'),
     ('pessoal');
@@ -91,39 +92,37 @@ DROP DATABASE IF EXISTS SpotifyClone;
     ('Somewhere Far Beyond', 4),
     ('I Put A Spell On You', 4);
 
-
-
-      INSERT INTO SpotifyClone.cancoes(nome, album_cancoes)
+    INSERT INTO SpotifyClone.cancoes(nome, album_cancoes, duracao_segundos)
     VALUES
-    ('BREAK MY SOUL', 1),
-    ('VIRGO’S GROOVE', 1),
-    ("ALIEN SUPERSTAR", 1),
-    ("Don’t Stop Me Now", 1),
-    ("Under Pressure", 1),
-	  ("Como Nossos Pais", 1),
-    ("O Medo de Amar é o Medo de Ser Livre", 1),
-    ("Samba em Paris", 1),
-    ("The Bard’s Song", 1),
-    ("Feeling Good", 1);
+    ('BREAK MY SOUL', 1, 279),
+    ('VIRGO’S GROOVE', 1, 369),
+    ("ALIEN SUPERSTAR", 1, 116),
+    ("Don’t Stop Me Now", 2, 203),
+    ("Under Pressure", 3, 152),
+	  ("Como Nossos Pais", 4, 105),
+    ("O Medo de Amar é o Medo de Ser Livre", 5, 207),
+    ("Samba em Paris", 6, 267),
+    ("The Bard’s Song", 7, 244),
+    ("Feeling Good", 8, 100);
 
-	INSERT INTO SpotifyClone.historico_de_reproducoes(historico_cancoes_id, historico_usuarios_id)
+	INSERT INTO SpotifyClone.historico_de_reproducoes(historico_usuarios_id, historico_cancoes_id)
     VALUES
-    (3, 3),
-    (4, 3),
-    (5, 3),
-    (6, 3),
-    (7, 3),
-    (8, 3),
-    (9, 3),
-    (10, 3),
-    (10, 4),
-    (1, 2),
-    (3, 5),
-    (1, 6),
-    (2, 2),
-    (10, 2),
-    (5, 2),
-    (2, 3);
+	  (1,8),
+    (1,2),
+    (1,10),
+    (2,10),
+    (2,7),
+    (3,10),
+    (3,2),
+    (4,8),
+    (5,8),
+    (5,5),
+    (6,7),
+    (6,1),
+    (7,4),
+    (8,4),
+    (9,9),
+    (10,3);
 
     INSERT INTO SpotifyClone.artista_usuario(artista_id, usuario_id)
     VALUES
