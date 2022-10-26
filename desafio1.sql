@@ -3,8 +3,8 @@ DROP DATABASE IF EXISTS SpotifyClone;
 
   CREATE TABLE SpotifyClone.plano(
       id INT PRIMARY KEY AUTO_INCREMENT,
-      valor_plano DECIMAL(3, 2),
-      nome VARCHAR(45) NOT NULL
+      nome VARCHAR(45) NOT NULL,
+      valor_plano DECIMAL(3, 2)
   ) engine = InnoDB;
 
   CREATE TABLE SpotifyClone.usuario(
@@ -52,28 +52,15 @@ DROP DATABASE IF EXISTS SpotifyClone;
       PRIMARY KEY (artista_id, usuario_id)
   ) engine = InnoDB;
 
+
   	INSERT INTO SpotifyClone.plano (nome, valor_plano)
   VALUES
-	  ('gratuito', 0.00),
+	('gratuito', 0.00),
     ('familiar', 7.99),
     ('universitário', 5.99),
     ('pessoal', 6.99);
     
-
-    INSERT INTO SpotifyClone.usuario (nome, plano_usuario)
-  VALUES
-    ('Barbara Liskov', 1),
-    ('Robert Cecil Martin', 1),
-    ('Ada Lovelace', 2),
-    ('Martin Fowler', 2),
-    ('Sandi Metz', 2),
-    ('Paulo Freire', 3),
-    ('Bell Hooks', 3),
-    ('Christopher Alexander', 4),
-    ('Judith Butler', 4),
-    ('Jorge Amado', 4);
-    
-	INSERT INTO SpotifyClone.artista (nome)
+    	INSERT INTO SpotifyClone.artista (nome)
   VALUES
 	('Beyoncé'),
     ('Queen'),
@@ -81,17 +68,18 @@ DROP DATABASE IF EXISTS SpotifyClone;
     ('Baco Exu do Blues'),
     ('Blind Guardian'),
     ('Nina Simone');
-
-      INSERT INTO SpotifyClone.album (nome, artista_id)
+    
+	INSERT INTO SpotifyClone.album (nome, artista_id)
   VALUES
 	('Renaissance', 1),
-    ('Jazz', 1),
+    ('Jazz', 2),
     ('Hot Space', 2),
-    ('Falso Brilhante', 2),
+    ('Falso Brilhante', 3),
     ('Vento de Maio', 3),
-    ('QVVJFA?', 3),
-    ('Somewhere Far Beyond', 4),
-    ('I Put A Spell On You', 4);
+    ('QVVJFA?', 4),
+    ('Somewhere Far Beyond', 5),
+    ('I Put A Spell On You', 6);
+    
 
     INSERT INTO SpotifyClone.cancoes(nome, album_cancoes, duracao_segundos)
     VALUES
@@ -106,14 +94,27 @@ DROP DATABASE IF EXISTS SpotifyClone;
     ("The Bard’s Song", 7, 244),
     ("Feeling Good", 8, 100);
 
+    INSERT INTO SpotifyClone.usuario (nome, plano_usuario)
+  VALUES
+    ('Barbara Liskov', 1),
+    ('Robert Cecil Martin', 1),
+    ('Ada Lovelace', 2),
+    ('Martin Fowler', 2),
+    ('Sandi Metz', 2),
+    ('Paulo Freire', 3),
+    ('Bell Hooks', 3),
+    ('Christopher Alexander', 4),
+    ('Judith Butler', 4),
+    ('Jorge Amado', 4);
+    
 	INSERT INTO SpotifyClone.historico_de_reproducoes(historico_usuarios_id,
     historico_cancoes_id, data_de_reproducoes)
     VALUES
-	  (1,8,'2022-02-28'),
+	(1,8,'2022-02-28'),
     (1,2,'2020-05-02'),
     (1,10,'2020-03-06'),
     (2,10,'2022-08-05'),
-	  (2,7,'2020-01-02'),
+	(2,7,'2020-01-02'),
     (3,10,'2020-11-13'),
     (3,2,'2020-12-05'),
     (4,8,'2021-08-15'),
@@ -126,19 +127,19 @@ DROP DATABASE IF EXISTS SpotifyClone;
     (9,9,'2022-02-24'),
     (10,3,'2015-12-13');
   
-    INSERT INTO SpotifyClone.artista_usuario(artista_id, usuario_id)
+    INSERT INTO SpotifyClone.artista_usuario(usuario_id, artista_id)
     VALUES
-    (1, 1),
-    (1, 2),
-    (2, 3),
-    (2, 4),
-    (3, 5),
-    (3, 6),
-    (4, 6),
-    (4, 8),
-    (5, 9),
-    (5, 10),
-    (6, 10),
-    (6, 5),
-    (6, 6),
-    (1, 7);
+	(1,1),
+	(1,2),
+      (1,3),
+      (2,1),
+      (2,3),
+      (3,2),
+      (4,4),
+      (5,5),
+      (5,6),
+      (6,6),
+      (6,1),
+      (7,6),
+      (9,3),
+      (10,2);
